@@ -1,0 +1,95 @@
+execute pathogen#infect()
+
+set nocompatible
+
+syntax on
+filetype plugin indent  on
+
+colorscheme arcsrc
+
+set lines=50
+set columns=200
+
+" new
+set history=700
+set autoread
+set cursorline
+
+set ruler
+set number
+
+set backspace=eol,start,indent
+
+set ignorecase
+set smartcase
+
+set wildmenu
+set wildmode=list:longest
+set cmdheight=1
+set laststatus=2
+set hid
+
+set hlsearch
+set incsearch
+set nolazyredraw
+
+set showmatch
+
+set nobackup
+set nowb
+set noswapfile
+
+set smarttab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+set scrolloff=5
+set sidescrolloff=5
+
+set ai
+set si
+set nowrap
+
+:nnoremap <silent> <F5> :!start cmd /c "mingw32-make.exe & %:p:r:s,$,.exe,"<CR>
+
+set autowrite
+set makeprg=mingw32-make.exe
+
+map <a-left> :tabprevious<cr>
+map <a-right> :tabnext<cr>
+
+map <a-up> :bp<cr>
+map <a-down> :bn<cr>
+
+nnoremap ; :
+
+" tagbar
+
+nmap <F8> :TagbarToggle<CR>
+
+
+" syntastic
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall -Wextra'
+let g:syntastic_cpp_include_dirs = ['c:/mingw_dev_lib/include/SDL2', 'c:/mingw_dev_lib/include/GL']
+
+" airline
+
+let g:airline#extensions#tabline#enabled = 1
+
+" experiments
+
+"set foldmethod=syntax
+"set foldcolumn=0
+"set foldlevel=0
+"set foldnestmax=4
